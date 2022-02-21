@@ -50,4 +50,18 @@ recognition.addEventListener("end", () => {
   recognition.start();
 });
 
+const readyOutLoud = (message) => {
+  const speech = new SpeechSynthesisUtterance();
+  speech.text = "I am ready";
+  speech.lang = "en-US";
+  speech.rate = 1;
+  speech.pitch = 1;
+  speech.volume = 1;
+  if (message.includes("how are you")) {
+    speech.text = "I am fine";
+  }
+  // speech.voice = speechSynthesis.getVoices()[0];
+  speechSynthesis.speak(speech);
+};
+
 recognition.start();
